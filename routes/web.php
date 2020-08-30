@@ -20,21 +20,5 @@ $router->get('/', function () use ($router) {
 });
 
 
-$router->post('/messages',['uses'=>'MessageController@create']);
-$router->get('/messages',['uses'=>'MessageController@showAllMessages']);
-
-
-//$router->get('/messages', function () use ($router) {
-//    return app('db')->select("SELECT * FROM messages");
-//});
-//
-//
-//$router->post('/messages', function ($message) use ($router) {
-//    return $message;
-////    return app('db')->update("INSERT INTO MESSAGES(user_id,message) values (?,?)",$message);
-//});
-
-$router->get('users', function () {
-    $results = app('db')->select("SELECT * FROM users");
-    return $results;
-});
+$router->post('/messages', ['uses' => 'MessageController@create']);
+$router->get('/messages', ['uses' => 'MessageController@getNewMessages']);

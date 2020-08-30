@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateUsersTable extends Migration
@@ -20,28 +19,6 @@ class CreateUsersTable extends Migration
             $table->text('email');
             $table->timestamps();
         });
-
-
-        DB::table('users')->insert(
-            array(
-                'email' => 'john@domain.com',
-                'name' => 'John'
-            )
-        );
-
-        DB::table('users')->insert(
-            array(
-                'email' => 'mace@domain.com',
-                'name' => 'Mason'
-            )
-        );
-
-        DB::table('users')->insert(
-            array(
-                'email' => 'shawn@domain.com',
-                'name' => 'Shawn'
-            )
-        );
     }
 
 

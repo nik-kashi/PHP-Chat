@@ -4,18 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Message;
 use App\User;
+use DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class MessageController extends Controller
 {
     public function create(Request $request)
     {
         $user = User::find($request->userId);
-        return $user->messages()->create(['message'=>$request->message]);
+        $message = $request->message;
+        Log::info("new message From: " . ($user->name) . " Message: " . $message);
+        return $user->messages()->create(['message' => $message]);
     }
 
-    public function showAllMessages()
+    public function getNewMessages(Request $request)
     {
-        return response()->json(Message::with('user')->get());
+        $from = $request->input('from');
+        return response()->json(Message::with('user')->where('id', '>', $from)->get());
     }
 }
