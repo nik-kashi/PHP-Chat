@@ -7,9 +7,9 @@ $(document).ready(function () {
 
 function onStart() {
     const urlParams = new URLSearchParams(window.location.search);
-    userId = urlParams.get('userId');
+    userId = Number(urlParams.get('userId'));
     messagesDiv = $("#messages");
-    $.get('messages', function (response){
+    $.get('messages', function (response) {
         response.forEach(onMessage)
         openGameEventSource()
     })
@@ -17,12 +17,13 @@ function onStart() {
 
 
 function onMessage(message) {
-    messagesDiv.append(`<span>${message.userId}:${message.message}</span><br/>`)
+    let name = message.user.id === userId ? "You" : message.user.name;
+    messagesDiv.append(`<span><b>${name}</b>:${message.message}</span><br/>`)
     messagesDiv.scrollTop(messagesDiv[0].scrollHeight);
 }
 
 function sendMessage() {
-    var message = $("#message_textarea").val()
+    var message = $("#message_text").val()
     $.post('messages', {userId: userId, message: message});
 }
 

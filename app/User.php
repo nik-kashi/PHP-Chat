@@ -12,13 +12,18 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 {
     use Authenticatable, Authorizable;
 
+    public function messages()
+    {
+        return $this->hasMany('App\Message');
+    }
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email',
+        'name', 'email'
     ];
 
     /**
