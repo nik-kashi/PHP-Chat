@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Message;
 use App\User;
-use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -12,7 +11,7 @@ class MessageController extends Controller
 {
     public function create(Request $request)
     {
-        $user = User::find($request->userId);
+        $user = User::firstWhere('token',$request->token);
         $message = $request->message;
         Log::info("new message From: " . ($user->name) . " Message: " . $message);
         return $user->messages()->create(['message' => $message]);

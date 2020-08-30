@@ -15,21 +15,25 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->insert(
             array(
                 'email' => 'john@domain.com',
-                'name' => 'John'
+                'name' => 'John',
+                'token' => '123456DRFFYGHFKgsdafjhfdf'
+
             )
         );
 
         DB::table('users')->insert(
             array(
                 'email' => 'mace@domain.com',
-                'name' => 'Mason'
+                'name' => 'Mason',
+                'token' => '1234hjghsadf58hjgsdf'
             )
         );
 
         DB::table('users')->insert(
             array(
                 'email' => 'shawn@domain.com',
-                'name' => 'Shawn'
+                'name' => 'Shawn',
+                'token' => 'UUU099HHJHGFhjgsdflkkcdls'
             )
         );
     }

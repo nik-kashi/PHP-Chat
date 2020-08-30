@@ -6,8 +6,14 @@ For developing or running this application locally it is recommended to use *Hom
 
 As this application uses SQLite, you need to install php-sqlite on your machine.
 for Ubuntu:
+
 `$ sudo apt-get install php-sqlite3`
 
+create an empty file for database:
+
+`$ touch database/database.sqlite`
+ 
+  
 For executing Database migration:
 
 `$ php artisan migrate`
