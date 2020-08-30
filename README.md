@@ -20,6 +20,14 @@ For executing Database migration:
 
 `$ php artisan db:seed`
 
+URLs for test:
+
+Shawn: http://192.168.10.10/chat.html?token=UUU099HHJHGFhjgsdflkkcdls
+
+Mason: http://192.168.10.10/chat.html?token=1234hjghsadf58hjgsdf
+
+John: http://192.168.10.10/chat.html?token=123456DRFFYGHFKgsdafjhfdf
+
 ##Nice to add!
 Currently, it uses AJAX pulling to retrieve new messages from the server.
  
